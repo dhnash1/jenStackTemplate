@@ -34,8 +34,12 @@ $( document ).ready( function(){
       success: function( response ){
         console.log( 'back from post call:', response );
         var vari = response.field0;
+        $('#box').html("");
         for (var i = 0; i < vari.length; i++) {
-          $('#box').append('Thing: ' + vari[i].award);
+
+          $('#box').append('Award: ' + vari[i].award + " ");
+          $('#box').append('In: ' + vari[i].eventName + " ");
+          $('#box').append('For: ' + vari[i].athleteName + '<br>');
         }
 
       },
