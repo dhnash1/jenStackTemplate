@@ -10,12 +10,12 @@ $( document ).ready( function(){
       type: 'GET',
       url: '/testGet',
       success: function( response ){
-        console.log( 'back from get call:', response );
+        $('#box').append( 'back from get call:', response.field0 );
       },
       error: function(){
         console.log( 'error with ajax call...');
       }
-    })
+    });
   }; // end getData
 
   // test get function
@@ -23,7 +23,9 @@ $( document ).ready( function(){
     console.log( 'in postData' );
     // assemble object to send
     var objectToSend={
-      tester: 'testy'
+      eventName: $('#eventName').val(),
+      athleteName: $('#athleteName').val(),
+      award: $('#award').val()
     }; // end object to send
     $.ajax({
       type: 'POST',
@@ -31,11 +33,16 @@ $( document ).ready( function(){
       data: objectToSend,
       success: function( response ){
         console.log( 'back from post call:', response );
+        var vari = response.field0;
+        for (var i = 0; i < vari.length; i++) {
+          $('#box').append('Thing: ' + vari[i].award);
+        }
+
       },
       error: function(){
         console.log( 'error with ajax call...');
       }
-    })
+    });
   }; // end getData
 
   /// - buttons to test - ///
@@ -46,6 +53,7 @@ $( document ).ready( function(){
   $( '#testPostButton' ).on( 'click', function(){
     console.log( 'in testPostButton on click' );
     postData();
+
   }); // end testGetButton
 
 }); //end doc ready

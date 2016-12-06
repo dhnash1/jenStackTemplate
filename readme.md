@@ -13,12 +13,12 @@ Setup:
 
 Completing the project:
 ----------------------
-* display info from testGet call on the DOM
-* add input fields for a new event: eventName, athleteName, award
-* change the testPost button to get this user input and create a new object with this data
-* change the test post to send this object to the server
-* log out the req.body on the server side (should be this user input)
-* create an array of events on the server side and push new objects to it
+* display info from testGet call on the DOM [X]
+* add input fields for a new event: eventName, athleteName, award[X]
+* change the testPost button to get this user input and create a new object with this data[X]
+* change the test post to send this object to the server[X]
+* log out the req.body on the server side (should be this user input)[X]
+* create an array of events on the server side and push new objects to it [x]
 * have the server respond with a new object that has this array within
 * log out that array in the browser console when received
 * display those awards on the DOM

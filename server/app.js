@@ -4,6 +4,7 @@ var path = require( 'path' );
 var bodyParser = require( 'body-parser' );
 var urlEncodedParser = bodyParser.urlencoded( { extended: false } );
 var port = process.env.PORT || 8080;
+var events = [];
 
 app.listen( port, function( req, res ){
   console.log( 'server listening on', port );
@@ -31,9 +32,11 @@ app.get( '/testGet', function( req, res ){
 app.post( '/testPost', urlEncodedParser, function( req, res ){
   console.log( 'testPost url hit. req.body:', req.body );
   // do work here
+  events.push(req.body);
+  console.log(events);
   // assemble object to return
   var objectToReturn = {
-    field0: 'I came from testPost on server'
+    field0: events
   }; // end object to return
   // return objectToReturn
   res.send( objectToReturn );
