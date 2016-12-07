@@ -25,7 +25,10 @@ Completing the project:
 
 Tuesday night changes by Andy:
 ------------------------------
-* Removed "getData" button, client-side event listener, client-side getData function, and server-side testGet app.get section. The assignment doesn't require any of these.
+* Removed "getData" button, and client-side event listener. The assignment doesn't require any of these.
+* Re-assigned server-side testGet app.get section to initial transfer of array. This now runs
+without a button, and send the initial array to the client. Client requests it on document
+ready.
 * Instead of starting with an empty array of athletes and awards in app.get, started array out with three objects. This was mainly to refine the DOM display part (so you didn't have to enter new people each time), and to work on the hard/pro modes. The assignment tells us to make the global array, but doesn't say it has to be empty. So now it's not.
 * Changed the name of the client-side js file from "genericScript.js" to "client.js".
 * Button is now "addAwardButton", both in index.html and in client.js.
