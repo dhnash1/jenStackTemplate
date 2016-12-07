@@ -31,3 +31,9 @@ th {
 .award-column {
   width: 150px;
 }
+input, button{
+  text-align: center;
+ font-size: 16.2px;
+
+
+}
