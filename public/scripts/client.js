@@ -3,6 +3,20 @@
 $(document).ready(function(){
 //  console.log( 'jQuery document ready.' );
 
+  $.ajax({
+    /* Right off the bat, without any button needed, we'll fire
+    a GET request to get the initial array to display, and
+    display it on the DOM. */
+    type: 'GET',
+    url: '/testGet',
+    success: function(response){
+      displayArray(response.awardArray);
+    },
+    error: function(){
+      console.log( 'error with ajax call...');
+    }
+  });
+
   var postData = function(){
     /* Called by addAwardButton event listener. Function retrieves
     contents of three text input boxes from the DOM, puts them
