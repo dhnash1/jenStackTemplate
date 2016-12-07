@@ -20,6 +20,15 @@ app.get( '/', function( req, res ){
   res.sendFile( path.resolve( 'views/index.html' ) );
 }); // end base url
 
+app.get( '/testGet', function( req, res ){
+  console.log( 'testGet url hit' );
+  var initialAwardObject = {
+    awardArray: awardArray
+  }; // end initialAwardObject
+  // return initialAwardObject
+  res.send(initialAwardObject);
+}); // end testGet
+
 // testPost
 app.post( '/testPost', urlEncodedParser, function( req, res ){
   console.log( 'testPost url hit. req.body:', req.body );
