@@ -1,0 +1,33 @@
+body {
+  font: 12pt arial, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+th {
+    background-color: darkslategray;
+    color: white;
+}
+
+.event-column {
+  width: 300px;
+}
+
+.athlete-column {
+  width: 200px;
+}
+
+.award-column {
+  width: 150px;
+}
