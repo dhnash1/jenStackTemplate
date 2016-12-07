@@ -22,3 +22,12 @@ Completing the project:
 * have the server respond with a new object that has this array within
 * log out that array in the browser console when received
 * display those awards on the DOM
+
+Tuesday night changes by Andy:
+------------------------------
+* Removed "getData" button, client-side event listener, client-side getData function, and server-side testGet app.get section. The assignment doesn't require any of these.
+* Instead of starting with an empty array of athletes and awards in app.get, started array out with three objects. This was mainly to refine the DOM display part (so you didn't have to enter new people each time), and to work on the hard/pro modes. The assignment tells us to make the global array, but doesn't say it has to be empty. So now it's not.
+* Changed the name of the client-side js file from "genericScript.js" to "client.js".
+* Button is now "addAwardButton", both in index.html and in client.js.
+* Re-formatted the client.js DOM output as a table rather than as lines of text, to make it easier to style in CSS.
+* Added empty stylesheets/styles.css in /public, and <link> to it in index.html.

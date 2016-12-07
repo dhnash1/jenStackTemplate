@@ -4,7 +4,11 @@ var path = require( 'path' );
 var bodyParser = require( 'body-parser' );
 var urlEncodedParser = bodyParser.urlencoded( { extended: false } );
 var port = process.env.PORT || 8080;
-var events = [];
+var awardArray = [
+  {eventName: 'X-Games 2016 Skateboard Big Air', athleteName: 'Andy Taton', award: 'Least Improved'},
+  {eventName: 'U.S. Snowboarding Grand Prix 2016', athleteName: 'Deforis Nash', award: 'Gold Medal'},
+  {eventName: 'Dew Tour 2015', athleteName: 'Dev Jana', award: 'Best Hair'}
+];
 
 app.listen( port, function( req, res ){
   console.log( 'server listening on', port );
@@ -16,30 +20,18 @@ app.get( '/', function( req, res ){
   res.sendFile( path.resolve( 'views/index.html' ) );
 }); // end base url
 
-// testGet
-app.get( '/testGet', function( req, res ){
-  console.log( 'testGet url hit' );
-  // do work here
-  // assemble object to return
-  var objectToReturn = {
-    field0: 'I came from testGet on server'
-  }; // end object to return
-  // return objectToReturn
-  res.send( objectToReturn );
-}); // end testGet
-
 // testPost
 app.post( '/testPost', urlEncodedParser, function( req, res ){
   console.log( 'testPost url hit. req.body:', req.body );
   // do work here
-  events.push(req.body);
-  console.log(events);
+  awardArray.push(req.body);
+  console.log(awardArray);
   // assemble object to return
-  var objectToReturn = {
-    field0: events
+  var awardObjectToReturn = {
+    awardArray: awardArray
   }; // end object to return
   // return objectToReturn
-  res.send( objectToReturn );
+  res.send( awardObjectToReturn );
 }); // end testPost
 
 // static folder
