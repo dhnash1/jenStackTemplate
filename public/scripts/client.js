@@ -50,14 +50,15 @@ $(document).ready(function(){
   }; // end postData
 
   $('#addAwardButton').on( 'click', function(){
-    // Button handler
+    // Button handler. See details in postData() function above.
     console.log('in addAwardButton on click');
     postData();
   }); // end addAwardButton handler
 
   $('#alphabetizeButton').on( 'click', function(){
-    // Adapted from MDN reference:
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    /* Adapted from MDN reference:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    Alphabetizes array of award objects by athlete. */
     localArray.sort(function(a, b) {
       var nameA = a.eventName.toUpperCase(); // ignore upper and lowercase
       var nameB = b.eventName.toUpperCase(); // ignore upper and lowercase
@@ -73,6 +74,13 @@ $(document).ready(function(){
   });
 
   $(document).on('click', 'tr', function(){
+    /* Click handler to filter displayed array by athlete.
+    Handler gets the athlete name from the data-athlete attribute,
+    and then loops through the array to find and delete athlete
+    objects that don't match. This occurs in the localArray copy,
+    not in the server's authoritative array, so if the user adds
+    a new award, the array will refresh and re-display the athletes
+    that were filtered out before. */
     var athleteFilter = $(this).data('athlete');
 //    console.log(athleteFilter);
     for (var i = (localArray.length - 1); i >= 0; i--) {
@@ -84,6 +92,9 @@ $(document).ready(function(){
   });
 
   function displayArray(arr) {
+    /* Universal function for displaying table of award objects
+    to the DOM. Each row is encoded with data-athlete=
+    "athleteName". */
     var tableText = '<table>\n<tr>\n<th class="event-column">Event</th>\n<th class="athlete-column">Athlete</th>\n<th class="award-column">Award</th>\n</tr>\n';
     for (var i = 0; i < arr.length; i++) {
       tableText += '<tr data-athlete="' + arr[i].athleteName + '">\n<td>' + arr[i].eventName + '</td>\n';
